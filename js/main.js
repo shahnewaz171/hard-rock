@@ -26,7 +26,7 @@ const findSongs = () => {
 //Create song list using forEach and arrow method with validation
 const displaySongs = songItems => {
     const songsInfo = document.getElementById('songs');
-    songsInfo.innerHTML = "";
+    cleanPreviousInfo('songs');
  
     songItems.forEach(song => {
         // console.log(song);
@@ -79,6 +79,13 @@ const displayError = error => {
     const errorTag = document.getElementById('error-message');
     errorTag.innerText = error;
 };
+
+//Clear previous search item
+const cleanPreviousInfo = details => {
+    const FoodDetails = document.getElementById(details);
+    FoodDetails.innerHTML = "";
+};
+
 
 //For Mobile navBar
 function openNav() {
