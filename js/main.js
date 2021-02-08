@@ -1,32 +1,3 @@
-// function findSongs(){
-//     const searchSongBtn = document.getElementById('search-song-btn').value;
-
-//     async function songsSearchResult(){
-//         const response =  await fetch('https://api.lyrics.ovh/suggest/='+searchSongBtn);
-//         const data = await response.json();
-//         return data;
-//     }
-//     songsSearchResult().then(data => {
-//         console.log(data);
-//     })
-//     .catch(err => alert('Please enter the valid song name'));
-
-//     if(searchSongBtn == ''){
-//         alert('Please enter the song name');
-//     }
-//     else{
-        
-//     }
-
-//     const url = `https://api.lyrics.ovh/suggest/${searchSongBtn}`
-//     fetch(url)
-//     .then(res => res.json())
-//     .then(data =>console.log(data))
-// }
-// const displaySongs = songs => {
-//     console.log(songs);
-// };
-
 const findSongs = () => {
     const searchSongs = document.getElementById('search-songs').value;
     
@@ -41,10 +12,33 @@ const findSongs = () => {
     }
     else{
         songsSearchResult().then(data => {
-            console.log(data);
+            // console.log(data.data);
+            displaySongs(data.data);
         })
         .catch(err => alert('Please enter the valid food name'));
         document.getElementById('alert').innerHTML = "";
     }
     
+};
+
+const displaySongs = songItems => {
+    const songsInfo = document.getElementById('songs');
+
+    songItems.forEach(song => {
+        console.log(song);
+        const singleSongDiv = document.createElement('div');
+        singleSongDiv.className = 'single-result row align-items-center my-3 p-3';
+        
+        const songsAllInfo = `
+            <div class="col-md-9">
+                <h3 class="lyrics-name">${song.title}</h3>
+                <p class="author lead">Album by <span>${song.album.title}</span></p>
+            </div>
+            <div class="col-md-3 text-md-right text-center">
+                <button class="btn btn-success">Get Lyrics</button>
+            </div>
+        `;
+        singleSongDiv.innerHTML = songsAllInfo;
+        songsInfo.appendChild(singleSongDiv);
+    });
 };
