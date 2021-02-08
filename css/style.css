@@ -40,6 +40,9 @@ body{
 #alert{
     display: none;
 }
+#error-message{
+    margin-top: -2rem ;
+}
 footer{
     color: #a9a9a9;
     margin-top: 12rem;

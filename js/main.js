@@ -1,8 +1,9 @@
+//API connect from search box with validation
 const findSongs = () => {
     const searchSongs = document.getElementById('search-songs').value;
     
     async function songsSearchResult(){
-        const response =  await fetch('https://api.lyrics.ovh/suggests/'+searchSongs);
+        const response =  await fetch('https://api.lyrics.ovh/suggest/'+searchSongs);
         const data = await response.json();
         return data;
     }
@@ -15,11 +16,13 @@ const findSongs = () => {
             // console.log(data.data);
             displaySongs(data.data);
         })
-        .catch(err => alert('Please enter the valid food name'));
+        .catch(error => displayError("Something went wrong!! Please try again later"));
     }
     
 };
 
+
+//Create song list using forEach and arrow method with validation
 const displaySongs = songItems => {
     const songsInfo = document.getElementById('songs');
     songsInfo.innerHTML = "";
@@ -48,22 +51,30 @@ const displaySongs = songItems => {
     document.getElementById('alert').innerHTML = "";
 };
 
+
+
 //Display Lyrics
 const displaySongLyrics = async (artist, title) => {
     // console.log(artist, title);
     const url = `https://api.lyrics.ovh/v1/${artist}/${title}`;
-    const response = await fetch(url);
-    const data = await response.json();
-    renderSongLyrics(data.lyrics);
+    try{
+        const response = await fetch(url);
+        const data = await response.json();
+        renderSongLyrics(data.lyrics);
+    }
+    catch (error){
+        console.log(error);
+    }
 }; 
 
 const renderSongLyrics = lyrics => {
     const songLyrics = document.getElementById('lyrics');
-    if(songLyrics == ""){
-        alert('Did not find');
-    }
-    else{
-        songLyrics.innerText = lyrics;
-        document.getElementById('songs').style.display = "none";
-    }
+
+    songLyrics.innerText = lyrics;
+    // document.getElementById('songs').style.display = "none";
+};
+
+const displayError = error => {
+    const errorTag = document.getElementById('error-message');
+    errorTag.innerText = error;
 };
