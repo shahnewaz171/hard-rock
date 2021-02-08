@@ -4,6 +4,7 @@ body{
     background-repeat: no-repeat;
     background-size: 100%;
     background-position: top;
+    background-attachment: fixed;
 }
 
 .form-control{
@@ -36,6 +37,9 @@ body{
 .single-result{
     background: rgba(255, 255, 255, 0.2);
     border-radius: 15px;
+}
+#lyrics{
+    margin-top: 5rem;
 }
 #alert{
     display: none;

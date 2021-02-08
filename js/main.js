@@ -9,7 +9,7 @@ const findSongs = () => {
     }
     if(searchSongs === ""){
         // alert('Please enter the song name');
-        document.getElementById('alert').style.display = 'block';
+        displayError("Please enter the song name");
     }
     else{
         songsSearchResult().then(data => {
@@ -48,22 +48,21 @@ const displaySongs = songItems => {
         songsInfo.appendChild(singleSongDiv);
     });
     document.getElementById('search-songs').value = "";
-    document.getElementById('alert').innerHTML = "";
 };
 
 
 
 //Display Lyrics
 const displaySongLyrics = async (artist, title) => {
-    // console.log(artist, title);
+    console.log(artist, title);
     const url = `https://api.lyrics.ovh/v1/${artist}/${title}`;
     try{
         const response = await fetch(url);
         const data = await response.json();
         renderSongLyrics(data.lyrics);
     }
-    catch (error){
-        console.log(error);
+    catch (e) {
+        console.log("error");
     }
 }; 
 
