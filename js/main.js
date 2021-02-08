@@ -9,14 +9,15 @@ const findSongs = () => {
     }
     if(searchSongs === ""){
         // alert('Please enter the song name');
-        displayError("Please enter the song name");
+        displayError("Please enter the song name!!");
     }
     else{
         songsSearchResult().then(data => {
-            // console.log(data.data);
+            // console.log(data.data.artist.name);
             displaySongs(data.data);
+            
         })
-        .catch(error => displayError("Something went wrong!! Please try again later"));
+        .catch(error => displayError("Something went wrong!! Please try again later!"));
     }
     
 };
@@ -26,7 +27,7 @@ const findSongs = () => {
 const displaySongs = songItems => {
     const songsInfo = document.getElementById('songs');
     songsInfo.innerHTML = "";
-
+ 
     songItems.forEach(song => {
         // console.log(song);
         const singleSongDiv = document.createElement('div');
@@ -54,23 +55,24 @@ const displaySongs = songItems => {
 
 //Display Lyrics
 const displaySongLyrics = async (artist, title) => {
-    console.log(artist, title);
+    // console.log(artist, title);
     const url = `https://api.lyrics.ovh/v1/${artist}/${title}`;
     try{
         const response = await fetch(url);
         const data = await response.json();
         renderSongLyrics(data.lyrics);
     }
-    catch (e) {
-        console.log("error");
+    catch (error) {
+        displayError("Sorry! I failed to load lyrics, Please try again later!");
     }
 }; 
 
 const renderSongLyrics = lyrics => {
     const songLyrics = document.getElementById('lyrics');
-
-    songLyrics.innerText = lyrics;
-    // document.getElementById('songs').style.display = "none";
+    if(songLyrics){
+        songLyrics.innerText = lyrics; 
+        document.getElementById('songs').style.display = "none";
+    }
 };
 
 const displayError = error => {
