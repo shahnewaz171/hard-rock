@@ -2,7 +2,7 @@ const findSongs = () => {
     const searchSongs = document.getElementById('search-songs').value;
     
     async function songsSearchResult(){
-        const response =  await fetch('https://api.lyrics.ovh/suggest/'+searchSongs);
+        const response =  await fetch('https://api.lyrics.ovh/suggests/'+searchSongs);
         const data = await response.json();
         return data;
     }
