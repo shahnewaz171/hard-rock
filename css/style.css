@@ -37,7 +37,9 @@ body{
     background: rgba(255, 255, 255, 0.2);
     border-radius: 15px;
 }
-
+#alert{
+    display: none;
+}
 footer{
     color: #a9a9a9;
 }
