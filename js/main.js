@@ -22,9 +22,10 @@ const findSongs = () => {
 
 const displaySongs = songItems => {
     const songsInfo = document.getElementById('songs');
+    songsInfo.innerHTML = "";
 
     songItems.forEach(song => {
-        console.log(song);
+        // console.log(song);
         const singleSongDiv = document.createElement('div');
         singleSongDiv.className = 'single-result row align-items-center my-3 p-3';
         
@@ -37,7 +38,7 @@ const displaySongs = songItems => {
                 </audio>
             </div>
             <div class="col-md-3 text-md-right text-center">
-                <button class="btn btn-success">Get Lyrics</button>
+                <button onclick="displaySongLyrics('${song.artist.name}',' ${song.title}')" class="btn btn-success">Get Lyrics</button>
             </div>
         `;
         singleSongDiv.innerHTML = songsAllInfo;
@@ -45,4 +46,24 @@ const displaySongs = songItems => {
     });
     document.getElementById('search-songs').value = "";
     document.getElementById('alert').innerHTML = "";
+};
+
+//Display Lyrics
+const displaySongLyrics = (artist, title) => {
+    // console.log(artist, title);
+    const url = `https://api.lyrics.ovh/v1/${artist}/${title}`;
+    fetch(url)
+    .then(response => response.json())
+    .then(data => renderSongLyrics(data.lyrics));
+}; 
+
+const renderSongLyrics = lyrics => {
+    const songLyrics = document.getElementById('lyrics');
+    if(songLyrics == ""){
+        alert('Did not find');
+    }
+    else{
+        songLyrics.innerText = lyrics;
+        document.getElementById('songs').style.display = "none";
+    }
 };
