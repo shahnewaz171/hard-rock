@@ -25,29 +25,40 @@
             <a class="navbar-brand" href="#">
                 <img src="images/logo.png" alt="Hard Rock Solution">
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
-                <img src="images/toggler-icon.svg" alt="">
-            </button>
-            <div class="collapse navbar-collapse" id="collapsibleNavId">
-                <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Country</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Song Lyrics</a>
-                        <div class="dropdown-menu" aria-labelledby="dropdownId">
-                            <a class="dropdown-item" href="#">Bangla Lyrics</a>
-                            <a class="dropdown-item" href="#">Other Lyrics</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contact Us</a>
-                    </li>
-                </ul>
+            <ul class="main-nav navbar-nav ml-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Country</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Song Lyrics</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownId">
+                        <a class="dropdown-item" href="#">Bangla Lyrics</a>
+                        <a class="dropdown-item" href="#">Other Lyrics</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact Us</a>
+                </li>
+            </ul>
+             <!-- Small Device NavBar -->
+             <div class="mobile-menu">
+                <span style="color:#fff" onclick="openNav()"><img src="images/toggler-icon.svg" alt=""></span>
+                <div id="myNav" class="overlay">
+                    <a href="javascript:void()" onclick="closeNav()" class="closeBtn">&times;</a>
+                    <div class="overlay-content">
+                        <a onclick="closeNav()" href="index.html">Home</a>
+                        <a onclick="closeNav()" href="#">Country</a>
+                        <a onclick="closeNav()" href="#">Song Lyrics</a>
+                        <a onclick="closeNav()" href="#">Contact Us</a>
+                    </div>
+                </div>
             </div>
+            <!--/. Small Device NavBar -->
+            
+            
         </nav>
 
         <main class="content-area">

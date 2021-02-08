@@ -5,3 +5,26 @@
     }
     
 }
+@media only screen and (max-width: 991px){
+    .main-nav{
+        display:none ;
+    }
+    .mobile-menu span{
+        display: block;
+        font-size: 45px;
+    }
+}
+@media only screen and (max-width: 479px){
+    .search-bar h1{
+        font-size: 2rem !important;
+    }
+    .overlay .closeBtn {
+        top: -1.8rem;
+        right: 1.5rem;
+    }
+}
+@media only screen and (max-width:400px){
+    .overlay a {
+        font-size: 1.7rem;
+    }
+}

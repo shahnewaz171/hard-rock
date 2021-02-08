@@ -51,3 +51,56 @@ footer{
     color: #a9a9a9;
     margin-top: 12rem;
 }
+
+
+
+/* Mobile NavBar */
+.mobile-menu span {
+    color: #fff;
+    font-size: 4rem;
+    float: right;
+    display: none;
+}
+.mobile-menu span:hover {
+    cursor: pointer;
+}
+.overlay {
+    width: 0;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1;
+    overflow: hidden;
+    transition: 0.5s;
+}
+.overlay-content {
+    position: relative;
+    top: 10%;
+    width: 100%;
+    text-align: center;
+}
+.overlay a {
+    text-decoration: none;
+    display: block;
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3rem;
+    color: #999;
+    padding: 1rem 0;
+}
+.overlay a:hover {
+    color: #fff;
+}
+.overlay .closeBtn {
+    position: absolute;
+    top: 0rem;
+    right: 4.5rem;
+    font-size: 5rem;
+}
+.mobile-menu span {
+    margin-top: 0;
+    line-height: 1;
+}
+/* /.Mobile NavBar  */
