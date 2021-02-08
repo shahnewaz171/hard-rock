@@ -16,7 +16,6 @@ const findSongs = () => {
             displaySongs(data.data);
         })
         .catch(err => alert('Please enter the valid food name'));
-        document.getElementById('alert').innerHTML = "";
     }
     
 };
@@ -33,6 +32,9 @@ const displaySongs = songItems => {
             <div class="col-md-9">
                 <h3 class="lyrics-name">${song.title}</h3>
                 <p class="author lead">Album by <span>${song.album.title}</span></p>
+                <audio controls>
+                    <source src="${song.preview}" type="audio/ogg">
+                </audio>
             </div>
             <div class="col-md-3 text-md-right text-center">
                 <button class="btn btn-success">Get Lyrics</button>
@@ -41,4 +43,6 @@ const displaySongs = songItems => {
         singleSongDiv.innerHTML = songsAllInfo;
         songsInfo.appendChild(singleSongDiv);
     });
+    document.getElementById('search-songs').value = "";
+    document.getElementById('alert').innerHTML = "";
 };
