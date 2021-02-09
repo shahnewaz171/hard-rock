@@ -9,8 +9,8 @@ const findSongs = () => {
     }
     if(searchSongs === ""){
         // alert('Please enter the song name');
-        displayError("Please enter the song name!!");
-        document.getElementById();
+        // displayError("");
+        document.getElementById('error-message').innerText = 'Please enter the song name!!';
     }
     else{
         songsSearchResult().then(data => {
@@ -50,6 +50,7 @@ const displaySongs = songItems => {
         songsInfo.appendChild(singleSongDiv);
     });
     document.getElementById('search-songs').value = "";
+    document.getElementById('error-message').innerText = "";
 };
 
 
