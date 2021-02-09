@@ -10,6 +10,7 @@ const findSongs = () => {
     if(searchSongs === ""){
         // alert('Please enter the song name');
         displayError("Please enter the song name!!");
+        document.getElementById()
     }
     else{
         songsSearchResult().then(data => {
