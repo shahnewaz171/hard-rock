@@ -1,6 +1,15 @@
+//Trigger Button Enter
+document.getElementById("search-songs").addEventListener("keypress", function(event) {
+    console.log('work', event.key);
+    if (event.key == 'Enter'){
+        document.getElementById("search-button").click();
+    }
+});
+
 //API connect from search box with validation
 const findSongs = () => {
     const searchSongs = document.getElementById('search-songs').value;
+    toggleSpinner();
     
     async function songsSearchResult(){
         const response =  await fetch('https://api.lyrics.ovh/suggest/'+searchSongs);
@@ -11,6 +20,7 @@ const findSongs = () => {
         // alert('Please enter the song name');
         // displayError("");
         document.getElementById('error-message').innerText = 'Please enter the song name!!';
+        document.getElementById('loading-spinner').style.display = 'none';
     }
     else{
         songsSearchResult().then(data => {
@@ -51,6 +61,7 @@ const displaySongs = songItems => {
     });
     document.getElementById('search-songs').value = "";
     document.getElementById('error-message').innerText = "";
+    toggleSpinner();
 };
 
 
@@ -87,6 +98,24 @@ const cleanPreviousInfo = details => {
     const FoodDetails = document.getElementById(details);
     FoodDetails.innerHTML = "";
 };
+
+//==Loading Spinner==//
+// const toggleSpinner = (show) => {
+//     const spinner = document.getElementById('loading-spinner');
+//     if(show){
+//         spinner.classList.remove('d-none');
+//     }
+//     else{
+//         spinner.classList.add('d-none');
+//     }
+// };
+
+//another way
+const toggleSpinner = () => {
+    const spinner = document.getElementById('loading-spinner');
+    spinner.classList.toggle('d-none');
+};
+
 
 
 //For Mobile navBar

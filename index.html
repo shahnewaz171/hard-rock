@@ -55,8 +55,14 @@
                 <div class="my-5">
                     <div class="search-box">
                         <input id="search-songs" type="text" class="form-control" placeholder="Enter your artist song name">
-                        <button onclick="findSongs()" class="btn btn-success search-btn">Search</button>
+                        <button id="search-button" onclick="findSongs()" class="btn btn-success search-btn">Search</button>
                     </div>
+                </div>
+            </div>
+            <!-- Spinner -->
+            <div id="loading-spinner" class="text-center d-none">
+                <div class="spinner-border text-warning" role="status">
+                    <span class="sr-only">Loading...</span>
                 </div>
             </div>
             <!-- Single Lyrics -->
